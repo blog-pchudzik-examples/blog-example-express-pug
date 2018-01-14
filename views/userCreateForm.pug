@@ -1,0 +1,26 @@
+form#userCreateForm
+	p
+		| User first name
+		input#userFirstName(type='text')
+	p
+		| User last name
+		input#userLastName(type='text')
+	p
+		input#userSave(type='submit', value='Save')
+
+script(src='javascripts/views/singleUser.js')
+script.
+	$(document).ready(function () {
+		$('#userCreateForm').submit(function () {
+			$.post(
+				'http://localhost:3000/api/users',
+				{
+					firstName: $('#userFirstName').val(),
+					lastName: $('#userLastName').val()
+				},
+				function (response) {
+					$('#allUsers').append(singleuserTemplate({user: response}));
+				});
+		});
+	});
+

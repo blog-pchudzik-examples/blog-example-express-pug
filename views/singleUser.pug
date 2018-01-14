@@ -1,0 +1,19 @@
+li.userItem(id='user' + user.id)
+	a(href='/users/' + user.id)
+		span.id= user.id
+		=" "
+		span.firstName= user.firstName
+		=" "
+		span.lastName= user.lastName
+	input(type='button',value='Delete user',id='user' + user.id + 'Remove')
+
+	script.
+		$('#user#{user.id}Remove').click(function () {
+			$.ajax({
+				url: 'http://localhost:3000/api/users/#{user.id}',
+				type: 'DELETE',
+				success: function () {
+					$('#user#{user.id}').remove();
+				}
+			});
+		});

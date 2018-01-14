@@ -1,0 +1,26 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "pug -c --name-after-file -o public/javascripts/views views && node ./bin/www",
+    "dev": "concurrently -k \"nodemon ./bin/www\" \"pug -c -w --name-after-file -o public/javascripts/views views\""
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dev": "^0.1.3",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.9.8",
+    "nodemon": "^1.14.11",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
